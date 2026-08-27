@@ -1,0 +1,8 @@
+{
+  "name": "prime-pstack",
+  "version": "0.1.0",
+  "description": "pstack skills (cursor/plugins) ported to prime-agent: rigorous agent workflows — poteto-mode, principles, unslop, arena, reflect, swarm and more.",
+  "license": "MIT",
+  "keywords": ["prime-agent", "skills", "pstack", "poteto-mode", "agent", "workflow"],
+  "files": ["skills"]
+}
