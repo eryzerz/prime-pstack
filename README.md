@@ -13,20 +13,33 @@ reference Cursor.
 
 ## Install
 
-Three ways, same result:
+**Via npm (recommended)**
 
-1. **npm** (when published): `npm install prime-pstack` — prime-agent
-   auto-discovers the `skills/` directory in the package.
-2. **Clone into your skills dir**:
-   ```bash
-   git clone <this-repo> ~/.prime/agent/skills/prime-pstack
-   ```
-   (after cloning, skills live one level deeper — move `prime-pstack/skills/*`
-   into `~/.prime/agent/skills/`).
-3. **Per-project**: clone or symlink the `skills/` dir into
-   `.prime/agent/skills/` at your project root.
+```bash
+prime-agent package install npm:prime-pstack                 # all your sessions
+prime-agent package install --local npm:prime-pstack         # one project only
+```
+
+prime-agent installs the package, registers it under `packages` in
+`~/.prime/agent/settings.json` (or `.prime/settings.json` with `--local`), and
+loads its 45 skills. Update with `prime-agent package update npm:prime-pstack`,
+remove with `prime-agent package remove npm:prime-pstack`.
 
 New skills load on session start; in an interactive session use `/reload`.
+
+> Note: a plain `npm install prime-pstack` into a project's `node_modules` does
+> **not** register the package with prime-agent — the `package install` command
+> is what adds the `skills/` directory to your settings.
+
+**From the GitHub repo**
+
+```bash
+git clone https://github.com/eryzerz/prime-pstack ~/.prime/agent/skills/prime-pstack
+```
+
+The loader scans nested skill directories, so cloning the repo into your
+skills dir works as-is. Per-project: clone or symlink `skills/` into
+`.prime/agent/skills/` at your project root.
 
 ## Start here
 
